@@ -26,7 +26,17 @@ background.onload = person.onload = function() {
 function drawImage(name = "YOUR NAME") {
     // Clear the canvas before drawing
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-}
+
+    // Adjust canvas size based on screen width
+    const screenWidth = window.innerWidth;
+    let canvasWidth = 1500;
+    let canvasHeight = 500
+
+    // Scale down the canvas for smaller screens
+    if (screenWidth < 768) {
+        canvasWidth = 960; // Half the original width for mobile
+        canvasHeight = 540; // Half the original height for mobile
+    }
 
     canvas.width = canvasWidth;
     canvas.height = canvasHeight;
